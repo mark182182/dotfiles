@@ -1,0 +1,68 @@
+!Old theme:
+!*.foreground: #F8F8F2
+!*.background: #282A36
+!*.color0:     #000000
+!*.color8:     #4D4D4D
+!*.color1:     #FF5555
+!*.color9:     #FF6E67
+!*.color2:     #50FA7B
+!*.color10:    #5AF78E
+!*.color3:     #F1FA8C
+!*.color11:    #F4F99D
+!*.color4:     #BD93F9
+!*.color12:    #CAA9FA
+!*.color5:     #FF79C6
+!*.color13:    #FF92D0
+!*.color6:     #8BE9FD
+!*.color14:    #9AEDFE
+!*.color7:     #BFBFBF
+!*.color15:    #E6E6E6
+! special
+*.foreground:   #bbdbd7
+*.background:   #070a09
+*.cursorColor:  #bbdbd7
+
+! black
+*.color0:       #0d1211
+*.color8:       #569c3a
+
+! red
+*.color1:       #161c1b
+*.color9:       #6ab150
+
+! green
+*.color2:       #252e2d
+*.color10:      #63ed6f
+
+! yellow
+*.color3:       #38625e
+*.color11:      #245bfa
+
+! blue
+*.color4:       #566664
+*.color12:      #4ba118
+
+! magenta
+*.color5:       #768b89
+*.color13:      #74b7ef
+
+! cyan
+*.color6:       #9cb7b4
+*.color14:      #9e7c26
+
+! white
+*.color7:       #c7e9e5
+*.color15:      #55b5ab
+!-- Xft settings -- !
+Xft.dpi:        96
+Xft.antialias:  true
+Xft.rgba:       rgb
+Xft.hinting:    true
+Xft.hintstyle:  hintfull
+
+URxvt.termName:rxvt-unicode-256color
+URxvt*scrollBar: false
+URxvt*font: xft:DroidSansMono:pixelsize=18
+URxvt*boldFont: xft:DroidSansMono:style:bold
+!URxvt*letterSpace: 1
+XTerm.vt100.faceName: Droid Sans Mono:size=14:antialias=false
