@@ -170,6 +170,8 @@ mode "system_menu" {
 bindsym $mod+0 mode "system_menu"
 exec "setxkbmap -layout hu"
 exec "xrdb ~/.Xresources"
+exec "dunst"
+
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
