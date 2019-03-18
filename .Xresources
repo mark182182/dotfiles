@@ -18,20 +18,20 @@
 !*.color7:     #BFBFBF
 !*.color15:    #E6E6E6
 ! special
-*.foreground:   #bbdbd7
-*.background:   #070a09
-*.cursorColor:  #bbdbd7
+*.foreground:   #ffffff
+*.background:   #000000
+*.cursorColor:  #ffffff
 
 ! black
-*.color0:       #0d1211
+*.color0:       #5a775e
 *.color8:       #569c3a
 
 ! red
-*.color1:       #161c1b
+*.color1:       #4a5844
 *.color9:       #6ab150
 
 ! green
-*.color2:       #252e2d
+*.color2:       #394745
 *.color10:      #63ed6f
 
 ! yellow
