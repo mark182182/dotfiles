@@ -134,6 +134,10 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
+bindsym $mod+F9 exec "xrandr --output LVDS-1 --brightness 0.5
+bindsym $mod+F10 exec "xrandr --output LVDS-1 --brightness 1
+bindsym exec redshift -o 5700:3600
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
