@@ -11,6 +11,7 @@ sudo pacman -S dwm --noconfirm
 sudo pacman -S thunar --noconfirm
 sudo pacman -S mc --noconfirm
 sudo pacman -S refind-efi --noconfirm
+sudo pacman -S dialog --noconfirm
 
 echo 'Installing from github...'
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
