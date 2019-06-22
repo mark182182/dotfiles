@@ -15,6 +15,7 @@ sudo pacman -S xorg --noconfirm
 sudo pacman -S dmenu
 sudo pacman -S xorg-xinit --noconfirm
 sudo pacman -S wpa_supplicant --noconfirm
+sudo pacman -S alsa-utils --noconfirm
 
 echo 'Installing from github...'
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
