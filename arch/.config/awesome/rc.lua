@@ -48,12 +48,12 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init("/home/vsl/.config/awesome/theme.lua")
-
+beautiful.font = "Iosevka Term SS06 Semibold 10"
 --Menubar config
 
 beautiful.menubar_fg_normal = "#235256"
 beautiful.menubar_bg_color = "#000000"
-beautiful.menubar_border_width = 10
+beautiful.menubar_border_width = 0
 beautiful.menubar_border_color = "#234523"
 beautiful.menubar_fg_normal = "#452456"
 beautiful.menubar_bg_normal = "#693274"
@@ -207,21 +207,33 @@ awful.screen.connect_for_each_screen(function(s)
     }
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s, width = 1200, height = 20, border_width = 10, border_color = "#22003300", shape = shape.rounded_rect, bg = "#2345", fg = "#2356" })
-    
-
+    s.mywibox = awful.wibar({ position = "top", screen = s, width = 1200, height = 20, border_width = 10, border_color = "#22003300", shape = shape.rounded_rect, bg = "#2345", fg = "#647088" })
+    s.mywibox.y = 10
+    s.mywibox.opacity = 0.8
     -- Add widgets to the wibox
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
-            layout = wibox.layout.fixed.horizontal,
+            layout = wibox.layout.align.horizontal,
             --mylauncher,
             s.mytaglist,
             s.mypromptbox,
         },
+        {
+          layout = wibox.layout.align.horizontal,
+          wibox.widget {
+            shape        = gears.shape.circle,
+            color        = '#00000000',
+            border_width = 1,
+            border_color = beautiful.fg_normal,
+            opacity = 0.4,
+            widget       = wibox.widget.separator,
+          }
+        },
+        
         -- Right widgets
         {
-            layout = wibox.layout.fixed.horizontal,
+            layout = wibox.layout.align.horizontal,
             wibox.widget.systray(),
             mytextclock,
         },
@@ -337,7 +349,7 @@ globalkeys = gears.table.join(
               end,
               {description = "lua execute prompt", group = "awesome"}),
     -- Menubar
-    awful.key({ modkey }, "p", function() menubar.show() end,
+    awful.key({ modkey }, "p", function() awful.spawn("lighthouse | sh") end,
               {description = "show the menubar", group = "launcher"})
 )
 
@@ -457,15 +469,16 @@ root.keys(globalkeys)
 -- Rules to apply to new clients (through the "manage" signal).
 awful.rules.rules = {
     -- All clients will match this rule.
-    { rule = { },
-      properties = { border_width = beautiful.border_width,
-                     border_color = beautiful.border_normal,
-                     focus = awful.client.focus.filter,
-                     raise = true,
-                     keys = clientkeys,
-                     buttons = clientbuttons,
-                     screen = awful.screen.preferred,
-                     placement = awful.placement.no_overlap+awful.placement.no_offscreen
+  { rule = {},
+    properties = {
+      border_width = beautiful.border_width,
+      border_color = beautiful.border_normal,
+      focus = awful.client.focus.filter,
+      raise = true,
+      keys = clientkeys,
+      buttons = clientbuttons,
+      screen = awful.screen.preferred,
+      placement = awful.placement.no_overlap+awful.placement.no_offscreen
      }
     },
 

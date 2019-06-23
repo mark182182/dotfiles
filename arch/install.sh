@@ -43,6 +43,7 @@ makepkg -si
 
 echo 'Install window manager...'
 sudo pacman -S awesome
+sudo yay -S lighthouse-git
 
 echo 'Copying dotfiles...'
 cp -r ./.* /home/$USERNAME/
