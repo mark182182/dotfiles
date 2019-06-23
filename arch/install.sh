@@ -39,7 +39,7 @@ cd yay
 makepkg -si
 
 echo 'Install window manager...'
-yay -S dwm
+sudo pacman -S awesome
 
 echo 'Copying dotfiles...'
 cp -r ./.* /home/$USERNAME/
