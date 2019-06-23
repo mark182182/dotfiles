@@ -30,6 +30,9 @@ sudo pacman -S python-pip --noconfirm
 sudo pacman -S docker --noconfirm
 sudo pacman -S qbittorrent --noconfirm
 sudo pacman -S gwenview --noconfirm
+sudo pacman -S vlc --noconfirm
+sudo pacman -S deepin-picker --noconfirm
+sudo pacman -S deepin-screenshot --noconfirm
 
 echo 'Installing from github...'
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
