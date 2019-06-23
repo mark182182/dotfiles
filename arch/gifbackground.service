@@ -1,0 +1,19 @@
+[Unit]
+Description=Animated background
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/vsl/Downloads/backgrounds
+ExecStart=xwinwrap -fs -ov -- gifview -w WID /home/vsl/Downloads/backgrounds/cbp.gif -a
+ExecStop=
+User=vsl
+Group=vsl
+Environment=PATH=/usr/bin:/usr/local/bin/
+Environment=DISPLAY=:0
+Environment=XAUTHORITY=/home/vsl/.Xauthority
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

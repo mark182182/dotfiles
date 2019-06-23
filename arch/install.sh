@@ -19,6 +19,17 @@ sudo pacman -S wpa_supplicant --noconfirm
 sudo pacman -S alsa-utils --noconfirm
 sudo pacman -S termite --noconfirm
 sudo pacman -S openssh --noconfirm
+sudo pacman -S lxappearance --noconfirm
+sudo pacman -S htop --noconfirm
+sudo pacman -S code --noconfirm
+sudo pacman -S ark --noconfirm
+sudo pacman -S nodejs --noconfirm
+sudo pacman -S yarn --noconfirm
+sudo pacman -S npm --noconfirm
+sudo pacman -S python-pip --noconfirm
+sudo pacman -S docker --noconfirm
+sudo pacman -S qbittorrent --noconfirm
+sudo pacman -S gwenview --noconfirm
 
 echo 'Installing from github...'
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d

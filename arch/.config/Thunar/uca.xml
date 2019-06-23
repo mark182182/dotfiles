@@ -1,0 +1,21 @@
+<?xml encoding="UTF-8" version="1.0"?>
+<actions>
+<action>
+	<icon>utilities-terminal</icon>
+	<name>Open Terminal Here</name>
+	<unique-id>1561211107684607-1</unique-id>
+	<command>termite .</command>
+	<description>Example for a custom action</description>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<directories/>
+</action>
+<action>
+	<icon>ark</icon>
+	<name>Open with ARK</name>
+	<unique-id>1561218018583482-1</unique-id>
+	<command>ark .</command>
+	<description>Compress/decompress files</description>
+	<patterns>*</patterns>
+</action>
+</actions>

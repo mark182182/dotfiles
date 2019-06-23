@@ -1,0 +1,19 @@
+[Unit]
+Description=Compton
+After=network.target
+
+[Service]
+Type=forking
+WorkingDirectory=/home/vsl/
+ExecStart=/usr/bin/compton -cb
+ExecStop=
+User=vsl
+Group=vsl
+Environment=PATH=/usr/bin:/usr/local/bin/
+Environment=DISPLAY=:0
+Environment=XAUTHORITY=/home/vsl/.Xauthority
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
