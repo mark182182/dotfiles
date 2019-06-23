@@ -13,7 +13,7 @@ awesome config:
 - Terminal: termite
 - Shell: fish
 - Compositor: compton
-- Background: xwinwrap, GIF
+- Background: xwinwrap, [GIF](https://archive-media-1.nyafuu.org/wg/image/1503/87/1503879334236.gif)
 - File manager: mc
 - Process viewer: htop
 - System info: neofetch
