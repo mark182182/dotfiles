@@ -19,6 +19,7 @@ awesome config:
 - System info: neofetch
 - Text editor: vim/spacemacs
 - Dynamic menu: lighthouse
+
 <a href="https://imgur.com/YhrFkRb"><img src="https://i.imgur.com/YhrFkRb.png" title="source: imgur.com" /></a>
 
 i3 config:
