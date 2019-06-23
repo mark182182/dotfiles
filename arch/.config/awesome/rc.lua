@@ -338,6 +338,10 @@ globalkeys = gears.table.join(
     awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
               {description = "run prompt", group = "launcher"}),
 
+    -- Use custom lock screen
+    awful.key({modkey}, "l", function () awful.spawn.with_shell("/home/vsl/rickit.sh")
+    end, {description = "lock the screen", group = "launcher"}),
+
     awful.key({ modkey }, "x",
               function ()
                   awful.prompt.run {
@@ -349,7 +353,7 @@ globalkeys = gears.table.join(
               end,
               {description = "lua execute prompt", group = "awesome"}),
     -- Menubar
-    awful.key({ modkey }, "p", function() awful.spawn("lighthouse | sh") end,
+    awful.key({ modkey }, "p", function() awful.spawn.with_shell("lighthm") end,
               {description = "show the menubar", group = "launcher"})
 )
 

@@ -33,6 +33,7 @@ sudo pacman -S gwenview --noconfirm
 sudo pacman -S vlc --noconfirm
 sudo pacman -S deepin-picker --noconfirm
 sudo pacman -S deepin-screenshot --noconfirm
+sudo pacman -S scrot --noconfirm
 
 echo 'Installing from github...'
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
