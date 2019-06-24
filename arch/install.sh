@@ -44,7 +44,10 @@ makepkg -si
 
 echo 'Install window manager...'
 sudo pacman -S awesome --noconfirm
-sudo yay -S lighthouse-git
+yay -S lighthouse-git
+
+echo 'Changing X11 layout...'
+setxkbmap hu
 
 echo 'Copying dotfiles...'
 cp -r ./.* /home/$USERNAME/

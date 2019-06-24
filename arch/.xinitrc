@@ -1,2 +1,3 @@
 #! /bin/bash
-exec dwm
+exec awesome
+xhost +local:
