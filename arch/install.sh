@@ -43,7 +43,7 @@ cd yay
 makepkg -si
 
 echo 'Install window manager...'
-sudo pacman -S awesome
+sudo pacman -S awesome --noconfirm
 sudo yay -S lighthouse-git
 
 echo 'Copying dotfiles...'
