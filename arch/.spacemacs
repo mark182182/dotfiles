@@ -31,6 +31,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     javascript
      lua
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
@@ -38,12 +39,12 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      helm
-      auto-completion
+     auto-completion
      ;; better-defaults
      emacs-lisp
      git
      markdown
-     ;; org
+     org
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
@@ -55,7 +56,11 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(
+                                      company-quickhelp
+                                      web-mode
+                                      helm-flycheck
+                                      )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
@@ -135,7 +140,7 @@ values."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Iosevka Term SS06"
-                               :size 16
+                               :size 18
                                :weight semibold
                                :width normal
                                :powerline-scale 1.1)
@@ -222,7 +227,7 @@ values."
    dotspacemacs-loading-progress-bar t
    ;; If non nil the frame is fullscreen when Emacs starts up. (default nil)
    ;; (Emacs 24.4+ only)
-   dotspacemacs-fullscreen-at-startup nil
+   dotspacemacs-fullscreen-at-startup t
    ;; If non nil `spacemacs/toggle-fullscreen' will not use native fullscreen.
    ;; Use to disable fullscreen animations in OSX. (default nil)
    dotspacemacs-fullscreen-use-non-native nil
@@ -292,7 +297,7 @@ values."
    ;; `trailing' to delete only the whitespace at end of lines, `changed'to
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
-   dotspacemacs-whitespace-cleanup nil
+   dotspacemacs-whitespace-cleanup 'all
    ))
 
 (defun dotspacemacs/user-init ()
@@ -311,7 +316,19 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
-  )
+(company-quickhelp-mode)
+(add-hook 'js2-mode-hook 'ac-js2-mode)
+(add-to-list 'company-backends 'ac-js2-company)
+(add-to-list 'auto-mode-alist '("\\.jsx?$" . web-mode)) ;; auto-enable for .js/.jsx files
+(setq web-mode-content-types-alist '(("jsx" . "\\.js[x]?\\'")))
+(setq-default flycheck-disabled-checkers
+              (append flycheck-disabled-checkers
+                      '(javascript-jshint json-jsonlist)))
+;; Enable eslint checker for web-mode
+(flycheck-add-mode 'javascript-eslint 'web-mode)
+;; Enable flycheck globally
+(add-hook 'after-init-hook #'global-flycheck-mode)
+)
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
@@ -320,12 +337,43 @@ you should place your code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ansi-color-names-vector
+   ["#000000" "#8b0000" "#00ff00" "#ffa500" "#7b68ee" "#dc8cc3" "#93e0e3" "#dcdccc"])
+ '(company-dabbrev-downcase nil)
+ '(company-dabbrev-ignore-case nil)
+ '(company-idle-delay 0.2)
+ '(company-minimum-prefix-length 2)
+ '(company-require-match nil)
+ '(company-tooltip-idle-delay 0)
+ '(company-tooltip-limit 10)
+ '(company-transformers
+   (quote
+    (spacemacs//company-transformer-cancel company-sort-by-occurrence)))
+ '(custom-safe-themes
+   (quote
+    ("59e82a683db7129c0142b4b5a35dbbeaf8e01a4b81588f8c163bd255b76f4d21" "ea71faa917045669be7b7450930b59460e61816a59c1d4026acba806951e194c" default)))
+ '(evil-want-Y-yank-to-eol nil)
+ '(exec-path
+   (quote
+    ("/usr/local/sbin/" "/usr/local/bin/" "/usr/bin/" "/usr/bin/site_perl/" "/usr/bin/vendor_perl/" "/usr/bin/core_perl/" "/home/vsl/Downloads/idea-IU-181.5087.20/bin/" "/home/vsl/Downloads/idea-IU/bin/" "/home/vsl/Downloads/idea-IU/bin/" "/home/vsl/Downloads/idea-IU/bin/" "/usr/lib/emacs/26.2/x86_64-pc-linux-gnu/" "/usr/bin/eslint")))
+ '(fci-rule-color "#383838" t)
+ '(global-company-mode t)
+ '(js-indent-level 2)
+ '(js2-highlight-level 3)
+ '(js2r-prefered-quote-type 2)
  '(package-selected-packages
    (quote
-    (js2-mode ng2-mode wakatime-mode lua-mode ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hydra lv hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile projectile pkg-info epl helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist highlight evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async))))
+    (company-quickhelp helm-flycheck evil-cleverparens evil-snipe ranger evil-commentary diff-hl jabber srv fsm company-emoji emoji-cheat-sheet-plus rcirc-color rcirc-notify slack emojify circe oauth2 erc-gitter erc-hl-nicks erc-image erc-social-graph erc-view-log erc-yt ggtags helm-gtags helm-cscope counsel-projectile ivy-hydra smex wgrep feature-mode projectile-rails pony-mode emmet-mode elfeed-goodies ace-jump-mode elfeed-org elfeed-web elfeed spotify helm-spotify-plus multi geeknote engine-mode twittering-mode p4 gist github-browse-file github-clone github-search magit-gh-pulls gh marshal logito pcache git-gutter-fringe git-gutter git-gutter-fringe+ fringe-helper git-gutter+ nlinum-relative nlinum esh-help eshell-prompt-extras eshell-z multi-term shell-pop xterm-color ansible ansible-doc company-ansible jinja2-mode terraform-mode hcl-mode vagrant vagrant-tramp prodigy docker docker-tramp dockerfile-mode edit-server gmail-message-mode ham-mode html-to-markdown flymd rebox2 imenu-list zeal-at-point helm-dash counsel dash-docs swiper deft puppet-mode company-restclient know-your-http-well ob-http ob-restclient restclient-helm restclient salt-mode mmm-jinja2 yaml-mode nginx-mode command-log-mode company-ycmd flycheck-ycmd ycmd request-deferred osx-location rase sunshine theme-changer pandoc-mode ox-pandoc systemd fasd spray flycheck-ledger ledger-mode ox-twbs ox-gfm ox-reveal typo mwim unfill ibuffer-projectile srefactor stickyfunc-enhance auto-dictionary flyspell-correct-ivy flyspell-correct-helm flyspell-correct-popup flyspell-correct flyspell-popup afternoon-theme alect-themes ample-theme ample-zen-theme apropospriate-theme anti-zenburn-theme badwolf-theme birds-of-paradise-plus-theme bubbleberry-theme busybee-theme cherry-blossom-theme clues-theme color-theme-sanityinc-solarized color-theme-sanityinc-tomorrow dakrone-theme darkburn-theme darkmine-theme darkokai-theme darktooth-theme django-theme dracula-theme espresso-theme exotica-theme farmhouse-theme flatland-theme flatui-theme gandalf-theme gotham-theme grandshell-theme gruber-darker-theme gruvbox-theme autothemer hc-zenburn-theme hemisu-theme heroku-theme inkpot-theme ir-black-theme jazz-theme jbeans-theme light-soap-theme lush-theme madhat2r-theme majapahit-theme material-theme minimal-theme moe-theme molokai-theme monokai-theme monochrome-theme mustang-theme naquadah-theme noctilux-theme obsidian-theme occidental-theme omtose-phellack-theme oldlace-theme organic-green-theme phoenix-dark-mono-theme phoenix-dark-pink-theme planet-theme professional-theme purple-haze-theme railscasts-theme rebecca-theme reverse-theme seti-theme smyx-theme soft-charcoal-theme soft-morning-theme soft-stone-theme solarized-theme soothe-theme spacegray-theme subatomic-theme subatomic256-theme sublime-themes sunny-day-theme tango-2-theme tango-plus-theme tangotango-theme tao-theme toxi-theme twilight-anti-bright-theme twilight-bright-theme twilight-theme ujelly-theme underwater-theme white-sand-theme zen-and-art-theme zenburn-theme color-identifiers-mode rainbow-identifiers rainbow-mode company-web web-completion-data helm-css-scss pug-mode sass-mode haml-mode scss-mode slim-mode tagedit sql-indent cider-eval-sexp-fu clj-refactor inflections edn cider paredit sesman queue parseedn parseclj a peg clojure-mode clojure-snippets auctex-latexmk company-auctex auctex racket-mode faceup cargo racer flycheck-rust rust-mode toml-mode swift-mode cmm-mode company-cabal company-ghci company-ghc flycheck-haskell ghc haskell-snippets helm-hoogle hindent hlint-refactor intero haskell-mode csv-mode ess-R-data-view ess-smart-equals ess tide typescript-mode bundler chruby enh-ruby-mode minitest rbenv robe inf-ruby rspec-mode rubocop ruby-test-mode ruby-tools rvm rake company-dcd d-mode flycheck-dmd-dub company-emacs-eclim eclim geiser faust-mode ob-sml sml-mode alchemist flycheck-mix elixir-mode flycheck-credo ob-elixir drupal-mode php-auto-yasnippets php-extras phpcbf phpunit vimrc-mode dactyl-mode flycheck-nim nim-mode flycheck-nimsuggest commenter epc ctable concurrent ein polymode deferred websocket graphviz-dot-mode powershell disaster clang-format cmake-mode company-c-headers merlin ocp-indent tuareg caml utop erlang elm-mode reformatter flycheck-elm company-go flycheck-gometalinter go-eldoc go-guru go-mode common-lisp-snippets slime-company slime ensime noflet scala-mode sbt-mode plantuml-mode nasm-mode x86-lookup adoc-mode markup-faces fsharp-mode ahk-mode company-shell fish-mode insert-shebang psci purescript-mode psc-ide arduino-mode julia-mode matlab-mode qml-mode scad-mode stan-mode thrift glsl-mode company-glsl company-anaconda anaconda-mode cython-mode helm-pydoc hy-mode live-py-mode pip-requirements py-isort pyenv-mode pythonic pytest pyvenv yapfify vmd-mode idris-mode prop-menu org-ref pdf-tools key-chord ivy tablist helm-bibtex parsebib biblio biblio-core omnisharp csharp-mode pyim pyim-basedict chinese-wbim fcitx find-by-pinyin-dired ace-pinyin pinyinlib pangu-spacing youdao-dictionary names chinese-word-at-point floobits selectric-mode xkcd 2048-game pacmacs sudoku typit mmt mu4e-alert ht mu4e-maildirs-extension bracketed-paste origami hl-anything company-nixos-options helm-nixos-options nix-mode nixos-options launchctl osx-dictionary osx-trash pbcopy reveal-in-osx-finder company-php org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download htmlize gnuplot ac-js2 company-flow counsel-tramp zones counsel-dash web-mode add-node-modules-path web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js-doc company-tern dash-functional tern coffee-mode smeargle orgit mmm-mode markdown-toc markdown-mode magit-gitflow magit-popup helm-gitignore helm-company helm-c-yasnippet gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md fuzzy flycheck-pos-tip pos-tip flycheck evil-magit magit transient git-commit with-editor company-statistics company auto-yasnippet yasnippet ac-ispell js2-mode ng2-mode wakatime-mode lua-mode ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hydra lv hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile projectile pkg-info epl helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist highlight evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async)))
+ '(web-mode-code-indent-offset 2)
+ '(web-mode-css-indent-offset 2)
+ '(web-mode-enable-auto-indentation t)
+ '(web-mode-enable-sql-detection t)
+ '(web-mode-extra-snippets nil)
+ '(web-mode-markup-indent-offset 2)
+ '(web-mode-sql-indent-offset 2))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((((class color) (min-colors 89)) (:foreground "#d3d3d3" :background "#000000")))))
+ '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight semi-bold :height 135 :width normal :foundry "CYEL" :family "Iosevka Term SS06")))))
