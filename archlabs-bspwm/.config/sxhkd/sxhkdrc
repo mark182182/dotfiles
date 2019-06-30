@@ -21,6 +21,14 @@ super + d
 alt + F1
     rofi_run -r
 
+# hide polybar with xdotool
+super + F10
+    xdotool windowunmap (xdotool search polybar)
+
+# show polybar with xdotool
+super + F11
+    xdotool windowmap (xdotool search polybar)
+
 # make sxhkd reload its configuration files:
 super + shift + r
     pkill -USR1 -x sxhkd
