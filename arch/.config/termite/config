@@ -6,7 +6,7 @@
 #cell_width_scale = 1.0
 #clickable_url = true
 #dynamic_title = true
-font = Iosevka Term SS06 Semibold 12
+font = Iosevka Term SS06 Bold 14
 #fullscreen = true
 #icon_name = terminal
 #mouse_autohide = false
@@ -26,7 +26,7 @@ scrollback_lines = 10000
 #cursor_blink = system
 
 # "block", "underline" or "ibeam"
-cursor_shape = underline
+cursor_shape = block
 
 # Hide links that are no longer valid in url select overlay mode
 #filter_unmatched_urls = true
@@ -46,9 +46,9 @@ cursor_shape = underline
 #cursor = #FcFcFc
 #cursor_foreground = #dFdcFc
 
-foreground = #bb99c2
-foreground_bold = #ddcce0
-background = #560066
+#foreground = #bb99c2
+#foreground_bold = #ddcce0
+#background = #560066
 
 # 20% background transparency (requires a compositor)
 #background = rgba(63, 63, 63, 0.8)
@@ -57,22 +57,63 @@ background = #560066
 highlight = #691345
 
 # Colors from color0 to color254 can be set
-color0 = #3f3f3f
-color1 = #705050
-color2 = #60b48a
-color3 = #dfaf8f
-color4 = #506070
-color5 = #dc8cc3
-color6 = #8cd0d3
-color7 = #dcdccc
-color8 = #709080
-color9 = #dca3a3
-color10 = #c3bf9f
-color11 = #f0dfaf
-color12 = #94bff3
-color13 = #ec93d3
-color14 = #93e0e3
-color15 = #ffffff
+#color0 = #3f3f3f
+#color1 = #705050
+#color2 = #60b48a
+#color3 = #dfaf8f
+#color4 = #506070
+#color5 = #dc8cc3
+#color6 = #8cd0d3
+#color7 = #dcdccc
+#color8 = #709080
+#color9 = #dca3a3
+#color10 = #c3bf9f
+#color11 = #f0dfaf
+#color12 = #94bff3
+#color13 = #ec93d3
+#color14 = #93e0e3
+#color15 = #ffffff
+
+[colors]
+
+# special
+#foreground      = #bcc7db
+#foreground_bold = #bcc7db
+cursor          = #bcc7db
+#background      = #0d1118
+
+# black
+color0  = #161c25
+color8  = #d99398
+
+# red
+color1  = #1e2530
+color9  = #e0a1df
+
+# green
+color2  = #2c3645
+color10 = #89c3c1
+
+# yellow
+color3  = #404d61
+color11 = #7ba6a4
+
+# blue
+color4  = #5a6a85
+color12 = #71dad6
+
+# magenta
+color5  = #788eaf
+color13 = #eda6ed
+
+# cyan
+color6  = #a6b6d0
+color14 = #94add3
+
+# white
+color7  = #dee3ed
+color15 = #78b0ad
+
 
 [hints]
 #font = Monospace 12

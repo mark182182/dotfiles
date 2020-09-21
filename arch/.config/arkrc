@@ -1,18 +1,39 @@
 [ExtractDialog]
-DirHistory[$e]=$HOME/Downloads/
+DirHistory[$e]=$HOME/Downloads/,$HOME/
 
 [KFileDialog Settings]
-Recent Files[$e]=file:$HOME
+Recent Files[$e]=file:$HOME/Downloads/
 Recent URLs[$e]=file:$HOME/Downloads/
+detailViewIconSize=0
 
 [MainWindow]
-State=AAAA/wAAAAD9AAAAAAAAAoAAAAGsAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgEAAAAA/////wAAAAAAAAAA
+Height 1440=1395
+State=AAAA/wAAAAD9AAAAAAAABPEAAAUlAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgEAAAAA/////wAAAAAAAAAA
 StatusBar=Disabled
 ToolBarsMovable=Disabled
-splitterSizes=424,212
+Width 2560=1265
+splitterSizes=840,421
+
+[Open-with settings]
+CompletionMode=1
+History=
 
 [Recent Files]
-File1[$e]=$HOME/Downloads/Black-Maia.tar.xz
-File2[$e]=$HOME/Downloads/Obscure-Grey.tar.xz
-Name1[$e]=Black-Maia.tar.xz
-Name2[$e]=Obscure-Grey.tar.xz
+File1[$e]=$HOME/Downloads/pkg-iosevka-ss06-3.5.0.zip
+File2[$e]=$HOME/Downloads/Hack-v3.003-ttf.zip
+File3[$e]=$HOME/Downloads/rick-lockscreen.7z
+File4[$e]=$HOME/Downloads/rick_electron_fffff.7z
+File5[$e]=$HOME/Downloads/Téveszme - Megosztom Veled- mielőtt feleslegesnek tartanám.zip
+File6[$e]=$HOME/Downloads/euphoria.s01.e05.03.bonnie.and.clyde.(2019).eng.1cd.(7834461).zip
+Name1[$e]=pkg-iosevka-ss06-3.5.0.zip
+Name2[$e]=Hack-v3.003-ttf.zip
+Name3[$e]=rick-lockscreen.7z
+Name4[$e]=rick_electron_fffff.7z
+Name5[$e]=Téveszme - Megosztom Veled- mielőtt feleslegesnek tartanám.zip
+Name6[$e]=euphoria.s01.e05.03.bonnie.and.clyde.(2019).eng.1cd.(7834461).zip
+
+[Viewer]
+Height 1440=451
+State=AAAA/wAAAAD9AAAAAAAACeYAAAF1AAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgEAAAAA/////wAAAAAAAAAA
+ToolBarsMovable=Disabled
+Width 2560=2534

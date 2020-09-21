@@ -1,0 +1,16 @@
+updateInfoAdded=true
+
+[filepicker.upd]
+ctime=1599331082
+done=filepicker-remove-old-previews-entry
+mtime=1596317000
+
+[gwenview.upd]
+ctime=1599596742
+done=SideBar_StatusBar_Rename,ImageView_AlphaBackgroundMode_Update,DeleteThumbnailSetting_Rename
+mtime=1598951285
+
+[kde4lightly.upd]
+ctime=1599344043
+done=5.0KDE4Lightly_2
+mtime=1599344001
